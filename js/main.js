@@ -1,0 +1,1 @@
+/* hlavní javascriptové funkce */
