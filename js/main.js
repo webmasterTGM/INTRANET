@@ -1,3 +1,3 @@
 /* hlavní javascriptové funkce */
 
-alert('Ahojík');
+alert('OK??');
