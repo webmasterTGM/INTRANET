@@ -32,3 +32,5 @@ function hideElement(elementId) {
     elm.classList.add('hidden');
   }
 }
+
+alert('loaded Main.js');
