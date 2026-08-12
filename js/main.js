@@ -256,13 +256,22 @@ function clearForm(formId) {
 function closeViewDocumentPopupWindow() {
   document.getElementById('viewDocumentDialog').close();
 }
-
+/*
 function openAddNewAndEditPopupWindow() {
   document.getElementById('addNewAndEditTaskForm').showModal();
 }
 
 function closeAddNewAndEditPopupWindow() {
   document.getElementById('addNewAndEditTaskForm').close();
+}
+*/
+
+function openModalPopupWindow(modalWindowId) {
+  document.getElementById(modalWindowId).showModal();
+}
+
+function closeModalPopupWindow(modalWindowId) {
+  document.getElementById(modalWindowId).close();
 }
 
 function setElementValue(elementId, value) {
