@@ -214,6 +214,29 @@ function flattenDataForForm(data, prefix = '') {
   return result;
 }
 
+function toDateValue(value) {
+  if (!value) return '';
+
+  const stringValue = String(value).trim();
+  // Formát: 2026-05-25
+  if (/^\d{4}-\d{2}-\d{2}$/.test(stringValue)) {
+    return stringValue;
+  }
+  // Formát s časem: 2026-05-25T20:00
+  if (/^\d{4}-\d{2}-\d{2}T/.test(stringValue)) {
+    return stringValue.slice(0, 10);
+  }
+  // Formát: 25.05.2026
+  // Případně: 25.05.2026 20:00:00
+  const match = stringValue.match(
+    /^(\d{1,2})\.(\d{1,2})\.(\d{4})(?:\s+\d{1,2}:\d{2}(?::\d{2})?)?$/
+  );
+  if (!match) return '';
+  const [, day, month, year] = match;
+
+  return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+}
+
 function isCheckedValue(value) {
   return value === '1' || value === 1 || value === true || value === 'true';
 }
