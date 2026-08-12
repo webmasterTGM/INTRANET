@@ -214,6 +214,23 @@ function flattenDataForForm(data, prefix = '') {
   return result;
 }
 
+function toDateTimeLocalValue(value) {
+  if (!value) return '';
+  const text = String(value).trim();
+  // Formát: 2026-05-25T20:00
+  if (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}/.test(text)) {
+    return text.slice(0, 16);
+  }
+  // Formát: 5.8.2026 20:00 nebo 05.08.2026 20:00:00
+  const match = text.match(
+    /^(\d{1,2})\.(\d{1,2})\.(\d{4})\s+(\d{1,2}):(\d{2})(?::\d{2})?$/
+  );
+  if (!match) return '';
+  const [, day, month, year, hour, minute] = match;
+
+  return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}T${hour.padStart(2, '0')}:${minute}`;
+}
+
 function toDateValue(value) {
   if (!value) return '';
 
