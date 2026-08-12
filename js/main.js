@@ -525,8 +525,8 @@ function onFilePicked(which) {
 
 function clearPickedFile(which) {
   setUploadMsg(null);
-  const input = document.getElementById(which === 'main' ? 'filesMain' : 'file_attach');
-  const label = document.getElementById(which === 'main' ? 'filesMainName' : 'file_attach_name');
+  const input = document.getElementById(which === 'main' ? 'filesMain' : 'finalizeFilesMain');
+  const label = document.getElementById(which === 'main' ? 'filesMainName' : 'finalizeFilesMainName');
   input.value = '';               // zruší vybraný soubor
   label.textContent = 'nevybrán žádný soubor';
 }
