@@ -415,9 +415,9 @@ function renderDocumentData(data) {
 
 function renderDocuments(documents, containerId = 'documentsList') {
   const container = document.getElementById(containerId);
-
+  let recordType = 'withId';
+  
   if (!container) return;
-
   container.innerHTML = '';
 
   if (!documents || Object.keys(documents).length === 0) {
@@ -425,34 +425,63 @@ function renderDocuments(documents, containerId = 'documentsList') {
     return;
   }
 
-  Object.values(documents).forEach(doc => {
-    if (!doc) return;
+  Object.entries(documents).forEach(([key, value]) => {
+    if(Object.keys(value).includes('fileName') && Object.keys(value).includes('fileUrl'))
+        recordType = 'withUrl';
+  });
+
+  Object.values(documents).forEach(record => {
+    if (!record) return;
 
     const item = document.createElement('div');
     item.className = 'document-item';
 
-    item.innerHTML = `
-      <div class="document-icon">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M6 2h8l4 4v16H6V2zm8 1.5V7h3.5L14 3.5z"/>
-        </svg>
-      </div>
-
-      <div class="document-info">
-        <div class="document-name">
-          ${esc(doc.docName || 'Dokument')}
+    if(recordType == 'withId')
+      item.innerHTML = `
+        <div class="document-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 2h8l4 4v16H6V2zm8 1.5V7h3.5L14 3.5z"/>
+          </svg>
         </div>
-      </div>
-
-      <button
-        type="button"
-        class="document-open"
-        onclick="openDocument('${doc.docId}')"
-        title="Otevřít dokument"
-      >
-        Otevřít
-      </button>
-    `;
+  
+        <div class="document-info">
+          <div class="document-name">
+            ${esc(record.docName) || 'Dokument'}
+          </div>
+        </div>
+  
+        <button
+          type="button"
+          class="document-open"
+          onclick="openDocument('${record.docId}')"
+          title="Otevřít dokument"
+        >
+          Otevřít
+        </button>
+      `;
+    if(recordType == 'withUrl')
+      item.innerHTML = `
+        <div class="document-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 2h8l4 4v16H6V2zm8 1.5V7h3.5L14 3.5z"/>
+          </svg>
+        </div>
+  
+        <div class="document-info">
+          <div class="document-name">
+            ${esc(record.fileName) || 'Dokument')}
+          </div>
+        </div>
+  
+        <button
+          type="button"
+          class="document-open"
+          onclick="'${record.fileUrl}'"
+          title="Otevřít dokument"
+        >
+          Otevřít
+        </button>
+      `;
 
     container.appendChild(item);
   });
