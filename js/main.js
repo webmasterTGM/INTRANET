@@ -357,3 +357,111 @@ function linkifyText(text) {
     return `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`;
   });
 }
+
+function renderDocumentData(data) {
+  const viewDocumentDialog = document.getElementById('viewDocumentDialog');
+  const viewDocumentForm = document.getElementById('viewDocumentForm');
+  viewDocumentForm.innerHTML = '';
+  const docData = JSON.parse(data.docData);
+
+  Object.values(docData).forEach(it => {
+    
+    const heading = document.createElement('h3');
+    heading.style.margin = '20px 0 6px 0';
+    heading.style.padding = '20px';
+    heading.style.backgroundColor = '#dbeafe';
+    heading.textContent = `Dokument "${esc(it.docName)}"`;
+
+    const iframe = document.createElement('iframe');
+    iframe.src = 'https://drive.google.com/file/d/' + esc(it.docId) + '/preview';
+    iframe.width = '100%';
+    iframe.height = '650';
+    iframe.style.border = '1px solid black';
+    iframe.setAttribute('allow', 'autoplay');
+
+    viewDocumentForm.appendChild(heading);
+    viewDocumentForm.appendChild(iframe);
+  });
+
+  const closeButton = document.createElement('button');
+  closeButton.type = 'button';
+  closeButton.className = 'btn-secondary';
+  closeButton.textContent = 'zavřít a odejít';
+  closeButton.style.margin = '10px';
+  closeButton.style.display = 'block';
+  closeButton.style.marginLeft = 'auto';
+
+  closeButton.addEventListener('click', () => {
+    closeViewDocumentPopupWindow();
+  });
+
+  const signButton = document.createElement('button');
+  signButton.type = 'button';
+  signButton.className = 'btn-primary';
+  signButton.textContent = 'ano, podepsat';
+  signButton.style.margin = '10px';
+  signButton.style.display = 'block';
+  signButton.style.marginLeft = 'auto';
+
+  signButton.addEventListener('click', () => {
+    actionSignDocument(data.taskId);
+  });
+
+  viewDocumentForm.appendChild(closeButton);
+  viewDocumentForm.appendChild(signButton);
+  
+  viewDocumentDialog.showModal();
+}
+
+function renderDocuments(documents, containerId = 'documentsList') {
+  const container = document.getElementById(containerId);
+
+  if (!container) return;
+
+  container.innerHTML = '';
+
+  if (!documents || Object.keys(documents).length === 0) {
+    container.innerHTML = '<div class="documents-empty">Žádné dokumenty</div>';
+    return;
+  }
+
+  Object.values(documents).forEach(doc => {
+    if (!doc || !doc.docId) return;
+
+    const item = document.createElement('div');
+    item.className = 'document-item';
+
+    item.innerHTML = `
+      <div class="document-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 2h8l4 4v16H6V2zm8 1.5V7h3.5L14 3.5z"/>
+        </svg>
+      </div>
+
+      <div class="document-info">
+        <div class="document-name">
+          ${esc(doc.docName || 'Dokument')}
+        </div>
+      </div>
+
+      <button
+        type="button"
+        class="document-open"
+        onclick="openDocument('${doc.docId}')"
+        title="Otevřít dokument"
+      >
+        Otevřít
+      </button>
+    `;
+
+    container.appendChild(item);
+  });
+}
+
+
+function openDocument(docId) {
+  window.open(
+    `https://drive.google.com/file/d/${docId}/preview`,
+    '_blank'
+  );
+}
