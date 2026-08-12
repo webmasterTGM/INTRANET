@@ -476,7 +476,7 @@ function renderDocuments(documents, containerId = 'documentsList') {
         <button
           type="button"
           class="document-open"
-          onclick="'${record.fileUrl}'"
+          onclick="openUrl('${record.fileUrl}')"
           title="Otevřít dokument"
         >
           Otevřít
@@ -491,6 +491,13 @@ function renderDocuments(documents, containerId = 'documentsList') {
 function openDocument(docId) {
   window.open(
     `https://drive.google.com/file/d/${docId}/preview`,
+    '_blank'
+  );
+}
+
+function openUrl(url) {
+  window.open(
+    `${url}`,
     '_blank'
   );
 }
