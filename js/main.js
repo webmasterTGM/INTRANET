@@ -458,7 +458,7 @@ function renderDocuments(documents, containerId = 'documentsList') {
         >
           otevřít
         </button>
-      `;/*
+      `;
     if(recordType == 'withUrl')
       item.innerHTML = `
         <div class="document-icon">
@@ -469,7 +469,7 @@ function renderDocuments(documents, containerId = 'documentsList') {
   
         <div class="document-info">
           <div class="document-name">
-            ${esc(record.fileName) || 'Dokument')}
+            ${esc(record.fileName) || 'Dokument'}
           </div>
         </div>
   
@@ -482,7 +482,7 @@ function renderDocuments(documents, containerId = 'documentsList') {
           otevřít
         </button>
       `;
-*/
+
     container.appendChild(item);
   });
 }
