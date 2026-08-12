@@ -487,7 +487,6 @@ function renderDocuments(documents, containerId = 'documentsList') {
   });
 }
 
-
 function openDocument(docId) {
   window.open(
     `https://drive.google.com/file/d/${docId}/preview`,
@@ -500,4 +499,51 @@ function openUrl(url) {
     `${url}`,
     '_blank'
   );
+}
+
+function onFilePicked(which) {
+  setUploadMsg(null);
+  const input = document.getElementById(
+    which === 'main' ? 'filesMain' : 'finalizeFilesMain'
+  );
+
+  const label = document.getElementById(
+    which === 'main' ? 'filesMainName' : 'finalizeFilesMainName'
+  );
+
+  const files = input.files;
+  const count = files ? files.length : 0;
+
+  if(count === 0) {
+    label.textContent = 'nevybrán žádný soubor';
+  } else if (count === 1) {
+    label.textContent = files[0].name;
+  } else {
+    label.textContent = `vybráno souborů: ${count}`;
+  }
+}
+
+function clearPickedFile(which) {
+  setUploadMsg(null);
+  const input = document.getElementById(which === 'main' ? 'filesMain' : 'file_attach');
+  const label = document.getElementById(which === 'main' ? 'filesMainName' : 'file_attach_name');
+  input.value = '';               // zruší vybraný soubor
+  label.textContent = 'nevybrán žádný soubor';
+}
+
+function setUploadMsg(t) {
+  hideUploadSpinner();
+  document.getElementById('uploadMsgInfo').textContent = t || '';
+  if(t)
+    showUploadSpinner();
+}
+
+function showUploadSpinner() {
+  const spinner = document.getElementById('uploadSpinner');
+  spinner.style.display = 'inline-block';
+}
+
+function hideUploadSpinner() {
+  const spinner = document.getElementById('uploadSpinner');
+  spinner.style.display = 'none';
 }
