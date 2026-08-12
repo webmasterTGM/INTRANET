@@ -426,7 +426,7 @@ function renderDocuments(documents, containerId = 'documentsList') {
   }
 
   Object.values(documents).forEach(doc => {
-    if (!doc || !doc.docId) return;
+    if (!doc) return;
 
     const item = document.createElement('div');
     item.className = 'document-item';
