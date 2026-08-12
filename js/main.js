@@ -456,9 +456,9 @@ function renderDocuments(documents, containerId = 'documentsList') {
           onclick="openDocument('${record.docId}')"
           title="Otevřít dokument"
         >
-          Otevřít
+          otevřít
         </button>
-      `;
+      `;/*
     if(recordType == 'withUrl')
       item.innerHTML = `
         <div class="document-icon">
@@ -479,10 +479,10 @@ function renderDocuments(documents, containerId = 'documentsList') {
           onclick="openUrl('${record.fileUrl}')"
           title="Otevřít dokument"
         >
-          Otevřít
+          otevřít
         </button>
       `;
-
+*/
     container.appendChild(item);
   });
 }
