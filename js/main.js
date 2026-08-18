@@ -332,6 +332,15 @@ function setElementText(elementId, value) {
   input.textContent = value;
 }
 
+function setSelectorText(selector, value) {
+  const input = document.querySelector(selector);
+
+  if(!input)
+    return;
+
+  input.textContent = value;
+}
+
 function esc(s) {
   return String(s || '')
     .replace(/&/g, '&amp;')
