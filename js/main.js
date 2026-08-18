@@ -61,6 +61,22 @@ function hideElement(elementId) {
   }
 }
 
+function showSelectorElement(selector) {
+  const elm = document.querySelector(selector);
+  if(elm) {
+    elm.style.display = '';
+    elm.classList.remove('hidden');
+  }
+}
+
+function hideSelectorElement(selector) {
+  const elm = document.querySelector(selector);
+  if(elm) {
+    elm.style.display = 'none';
+    elm.classList.add('hidden');
+  }
+}
+
 function showDataElement(element) {
   const elements = document.querySelectorAll('[data-element="' + element + '"]');
   elements.forEach(elm => {
