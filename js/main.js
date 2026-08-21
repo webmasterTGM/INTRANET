@@ -525,3 +525,9 @@ function openUrl(url) {
     '_blank'
   );
 }
+
+function addDaysToDate(now = null) {
+  const now = new Date(now);
+  
+  return tomorrow = now.setDate(now.getDate() + 1);
+}
