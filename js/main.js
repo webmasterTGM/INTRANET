@@ -527,7 +527,7 @@ function openUrl(url) {
 }
 
 function addDaysToDate(now = null, count) {
-  const now = new Date(now);
+  now = new Date(now);
   
   return tomorrow = now.setDate(now.getDate() + count);
 }
