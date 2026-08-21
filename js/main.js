@@ -525,9 +525,3 @@ function openUrl(url) {
     '_blank'
   );
 }
-
-function upgradeDate(now = '', countDays) {
-  now = new Date(now);
-  
-  return tomorrow = now.setDate(now.getDate() + countDays);
-}
