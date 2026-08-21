@@ -526,8 +526,8 @@ function openUrl(url) {
   );
 }
 
-function addDaysToDate(now = null) {
+function addDaysToDate(now = null, count) {
   const now = new Date(now);
   
-  return tomorrow = now.setDate(now.getDate() + 1);
+  return tomorrow = now.setDate(now.getDate() + count);
 }
