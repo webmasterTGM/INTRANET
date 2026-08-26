@@ -508,7 +508,7 @@ function renderDocuments(documents, containerId = 'documentsList') {
         </button>
         <button
           type="button"
-          class="document-open"
+          class="document-delete"
           onclick="deleteDocument('${record.fileId}')"
           title="Smazat dokument"
         >
