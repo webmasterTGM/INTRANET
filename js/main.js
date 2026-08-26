@@ -533,3 +533,11 @@ function openUrl(url) {
     '_blank'
   );
 }
+
+function deleteDocument(docId) {
+  confirmBox('Opravdu chcete odebrat tento dokument? Proces je nevratný.').then(result => {
+    if(result) {
+      doDeleteDocument(docId);
+    }
+  });
+}
