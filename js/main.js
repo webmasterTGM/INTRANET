@@ -506,6 +506,14 @@ function renderDocuments(documents, containerId = 'documentsList') {
         >
           otevřít
         </button>
+        <button
+          type="button"
+          class="document-open"
+          onclick="deleteDocument('${record.fileId}')"
+          title="Smazat dokument"
+        >
+          x
+        </button>
       `;
 
     container.appendChild(item);
