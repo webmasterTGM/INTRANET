@@ -438,7 +438,7 @@ function renderDocumentData(data) {
   viewDocumentDialog.showModal();
 }
 
-function renderDocuments(documents, containerId = 'documentsList') {
+function renderDocuments(taskId, documents, containerId = 'documentsList') {
   const container = document.getElementById(containerId);
   let recordType = 'withId';
   
@@ -509,7 +509,7 @@ function renderDocuments(documents, containerId = 'documentsList') {
         <button
           type="button"
           class="document-delete"
-          onclick="deleteDocument('${record.fileId}')"
+          onclick="deleteDocument('${taskId}', '${record.fileId}')"
           title="Smazat dokument"
         >
           x
