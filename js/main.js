@@ -45,6 +45,14 @@ function hidePreloader() {
   }
 }
 
+function showDocumentsPreloader() {
+  document.getElementById('documentsPreloader').classList.add('active');
+}
+
+function hideDocumentsPreloader() {
+  document.getElementById('documentsPreloader').classList.remove('active');
+}
+
 function showElement(elementId) {
   const elm = document.getElementById(elementId);
   if(elm) {
