@@ -542,10 +542,10 @@ function openUrl(url) {
   );
 }
 
-function deleteDocument(docId) {
+function deleteDocument(taskId, docId) {
   confirmBox('Opravdu chcete odebrat tento dokument? Proces je nevratný.').then(result => {
     if(result) {
-      doDeleteDocument(docId);
+      doDeleteDocument(taskId, docId);
     }
   });
 }
