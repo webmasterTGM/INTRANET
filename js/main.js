@@ -567,3 +567,12 @@ function deleteDocument(taskId, docId) {
     }
   });
 }
+
+function normalizeEmail(email) {
+  if (!email) return '';
+
+  return String(email)
+    .trim()   
+    .toLowerCase()
+    .replace(/\s+/g, '');
+}
