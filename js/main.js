@@ -33,7 +33,7 @@ function inputBox(message, inputDlgName, inputDlgDefaultValue, buttonDlgTrueId, 
       document.getElementById('inputDlgMsg').textContent = message;
       document.getElementById('inputDlgId').name = inputDlgName;
       document.getElementById('inputDlgId').value = inputDlgDefaultValue;
-      document.getElementById('buttonDlgFalseId').textContent = buttonDlgFalseId;
+      document.getElementById('buttonDlgTrueId').textContent = buttonDlgTrueId;
       document.getElementById('buttonDlgFalseId').textContent = buttonDlgFalseId;
       
       dlg.addEventListener('close', function onClose() {
