@@ -27,11 +27,12 @@ function confirmBox(message) {
   });
 }
 
-function inputBox(message, inputDlgName, buttonDlgTrueId, buttonDlgFalseId) {
+function inputBox(message, inputDlgName, inputDlgDefaultValue, buttonDlgTrueId, buttonDlgFalseId) {
     return new Promise(resolve => {
       const dlg = document.getElementById('inputDlg');
       document.getElementById('inputDlgMsg').textContent = message;
       document.getElementById('inputDlgId').name = inputDlgName;
+      document.getElementById('inputDlgId').value = inputDlgDefaultValue;
       document.getElementById('buttonDlgFalseId').textContent = buttonDlgFalseId;
       document.getElementById('buttonDlgFalseId').textContent = buttonDlgFalseId;
       
