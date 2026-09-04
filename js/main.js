@@ -27,6 +27,23 @@ function confirmBox(message) {
   });
 }
 
+function inputBox(message, inputDlgName, buttonDlgTrueId, buttonDlgFalseId) {
+    return new Promise(resolve => {
+      const dlg = document.getElementById('inputDlg');
+      document.getElementById('inputDlgMsg').textContent = message;
+      document.getElementById('inputDlgId').name = inputDlgName;
+      document.getElementById('buttonDlgFalseId').textContent = buttonDlgFalseId;
+      document.getElementById('buttonDlgFalseId').textContent = buttonDlgFalseId;
+      
+      dlg.addEventListener('close', function onClose() {
+        dlg.removeEventListener('close', onClose);
+        resolve(dlg.returnValue === 'true');
+      });
+
+      dlg.showModal();
+    });
+  }
+
 function showPreloader(text) {
   const el = document.getElementById('preloader');
   const t = document.getElementById('preloaderText');
