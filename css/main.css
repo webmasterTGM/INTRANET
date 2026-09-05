@@ -748,6 +748,85 @@ iframe {
   cursor: not-allowed;
 }
 
+.simple-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  cursor: pointer;
+  user-select: none;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #263238;
+}
+
+.simple-radio input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.simple-radio__box {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+
+  border: 2px solid #b0b8c1;
+  border-radius: 50%;
+  background: #fff;
+
+  transition: 0.2s ease;
+}
+
+/* vnitřní kolečko */
+.simple-radio__box::after {
+  content: "";
+  position: absolute;
+
+  width: 8px;
+  height: 8px;
+
+  left: 50%;
+  top: 50%;
+
+  border-radius: 50%;
+  background: #1976d2;
+
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.4);
+
+  transition: 0.15s ease;
+}
+
+/* hover */
+.simple-radio:hover .simple-radio__box {
+  border-color: #1976d2;
+}
+
+/* označené radio */
+.simple-radio input:checked + .simple-radio__box {
+  border-color: #1976d2;
+}
+
+/* zobrazení vnitřního kolečka */
+.simple-radio input:checked + .simple-radio__box::after {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* focus */
+.simple-radio input:focus-visible + .simple-radio__box {
+  outline: 3px solid rgba(25, 118, 210, 0.2);
+  outline-offset: 2px;
+}
+
+/* disabled */
+.simple-radio input:disabled + .simple-radio__box,
+.simple-radio input:disabled ~ .simple-radio__text {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 // --------------------------------------------
 #documentsList {
   width: 100%;
