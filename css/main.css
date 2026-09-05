@@ -613,6 +613,8 @@
 }
 
 /* Jednotlivá pracovní zařazení */
+.worker-label--u,
+.worker-label--u16,
 .worker-label--teach {
   color: #fff;
   background-color: #3c69a6;
@@ -620,6 +622,7 @@
   font-size: 16px;
 }
 
+.worker-label--vsd,
 .worker-label--classteach {
   color: #fff;
   background-color: #b92e90;
@@ -630,6 +633,13 @@
 .worker-label--ap {
   color: #fff;
   background-color: #819221;
+  border: 3px solid #586415;
+  font-size: 16px;
+}
+
+.worker-label--npp {
+  color: #fff;
+  background-color: #218992;
   border: 3px solid #586415;
   font-size: 16px;
 }
