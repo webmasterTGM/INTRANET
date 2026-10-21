@@ -981,7 +981,8 @@ iframe {
   display: inline-block;
   padding: 10px;
   font-weight: bold;
-  background-color: #ffa07a; 
+  background-color: #ffa07a;
+  border-radius: 3px; 
 } 
 .validitystate.invalid > span {
   display: inline-block;
@@ -989,4 +990,5 @@ iframe {
   font-weight: bold;
   color: #fff;
   background-color: #dc143c;
+  border-radius: 3px; 
 } 
