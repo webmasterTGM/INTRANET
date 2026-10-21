@@ -972,3 +972,18 @@ iframe {
 
   cursor: pointer;
 }
+
+.validitystate .valid {
+  padding: 10px;
+} 
+.validitystate .approaching {
+  padding: 10px;
+  font-weight: bold;
+  background-color: #ffa07a; 
+} 
+.validitystate .invalid {
+  padding: 10px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #8b0000;
+} 
