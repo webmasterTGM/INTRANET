@@ -509,6 +509,12 @@ function renderDocuments(taskId, documents, containerId = 'documentsList') {
         >
           otevřít
         </button>
+        <button
+          type="button"
+          class="document-delete"
+          onclick="deleteDocument('${taskId}', '${record.fileId}')"
+          title="Smazat dokument"
+        >x</button>
       `;
     if(recordType == 'withUrl')
       item.innerHTML = `
@@ -529,9 +535,7 @@ function renderDocuments(taskId, documents, containerId = 'documentsList') {
           class="document-open"
           onclick="openUrl('${record.fileUrl}')"
           title="Otevřít dokument"
-        >
-          otevřít
-        </button>
+        >otevřít</button>
         <button
           type="button"
           class="document-delete"
