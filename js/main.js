@@ -504,7 +504,7 @@ function renderDocuments(taskId, documents, containerId = 'documentsList') {
         <button
           type="button"
           class="document-open"
-          onclick="openDocument('${record.docId}')"
+          onclick="openDocument('${record.fileId}')"
           title="Otevřít dokument"
         >
           otevřít
