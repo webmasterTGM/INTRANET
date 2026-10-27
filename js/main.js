@@ -421,10 +421,10 @@ function renderDocumentData(data) {
     heading.style.margin = '20px 0 6px 0';
     heading.style.padding = '20px';
     heading.style.backgroundColor = '#dbeafe';
-    heading.textContent = `Dokument "${esc(it.docName)}"`;
+    heading.textContent = `Dokument "${esc(it.fileName)}"`;
 
     const iframe = document.createElement('iframe');
-    iframe.src = 'https://drive.google.com/file/d/' + esc(it.docId) + '/preview';
+    iframe.src = 'https://drive.google.com/file/d/' + esc(it.fileId) + '/preview';
     iframe.width = '100%';
     iframe.height = '650';
     iframe.style.border = '1px solid black';
