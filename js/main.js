@@ -472,7 +472,7 @@ function renderDocuments(taskId, documents, containerId = 'documentsList') {
   container.innerHTML = '';
 
   if (!documents || Object.keys(documents).length === 0) {
-    container.innerHTML = '<div class="documents-empty">Žádné dokumenty</div>';
+    container.innerHTML = '<div class="documents-empty">Nejsou vloženy žádné dokumenty</div>';
     return;
   }
 
