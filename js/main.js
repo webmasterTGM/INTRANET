@@ -497,7 +497,7 @@ function renderDocuments(taskId, documents, containerId = 'documentsList') {
   
         <div class="document-info">
           <div class="document-name">
-            ${esc(record.docName) || 'Dokument'}
+            ${esc(record.fileName) || 'Dokument'}
           </div>
         </div>
   
