@@ -1014,4 +1014,41 @@ iframe {
   color: #fff;
   background-color: #dc143c;
   border-radius: 5px; 
-} 
+}
+
+.signature-table {
+   width: 100%;
+   border-collapse: collapse;
+   table-layout: fixed;
+   border: 2px solid #374151;
+ }
+
+ .signature-table th,
+ .signature-table td {
+   border: 1px solid #6b7280;
+ }
+
+ .signature-table th {
+   height: 34px;
+   padding: 6px 10px;
+   background: #e5e7eb;
+   font-size: 15px;
+   font-weight: 700;
+   text-align: center;
+ }
+
+ .signature-table td {
+   height: 32px;
+   padding: 4px 8px;
+   background: #ffffff;
+ }
+
+ .signature-table th:first-child,
+ .signature-table td:first-child {
+   width: 50%;
+ }
+
+ .signature-table th:last-child,
+ .signature-table td:last-child {
+   width: 50%;
+ }
