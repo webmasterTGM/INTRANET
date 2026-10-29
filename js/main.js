@@ -593,7 +593,7 @@ const options = [
 
   const selected = new Set();
 
-  const searchMultipleSelectInput = document.getElementById('MultipleSelectSearch');
+  const searchMultipleSelectInput = document.getElementById('multipleSelectSearch');
   const list = document.getElementById('msList');
   const footer = document.getElementById('msFooter');
 
