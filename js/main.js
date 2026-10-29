@@ -584,21 +584,18 @@ function normalizeEmail(email) {
 /* multiple selectbox */
 
   let preselected = [];
-  let selectedMultipleSelectInput = '';
-
-    preselected = JSON.parse(document.getElementById('multipleSelectOptionsPreselectedPeoples').value);
-    console.log(preselected);
-    selectedMultipleSelectInput = new Set(preselected);
+  //let selectedMultipleSelectInput = '';
+  selectedMultipleSelectInput = new Set(preselected);
 
   const searchMultipleSelectInput = document.getElementById('multipleSelectSearch');
   const list = document.getElementById('multipleSelectList');
   const footer = document.getElementById('multipleSelectFooter');
 
   function runMultipleSelectInput() {
-    //preselected = ["testovaciucitel@zstgmasaryka.cz","tesarova@zstgmasaryka.cz"];
+    preselected = ["testovaciucitel@zstgmasaryka.cz","tesarova@zstgmasaryka.cz"];
     //preselected = JSON.parse(document.getElementById('multipleSelectOptionsPreselectedPeoples').value);
     //console.log(preselected);
-    //selectedMultipleSelectInput = new Set(preselected);
+    selectedMultipleSelectInput = new Set(preselected);
   }
 
   function getFilteredOptions() {
