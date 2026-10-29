@@ -582,23 +582,18 @@ function normalizeEmail(email) {
 }
 
 /* multiple selectbox */
-/*
-const options = [
-    { value: 'u01', label: 'Brejchová Eva' },
-    { value: 'u02', label: 'Houdková Petra' },
-    { value: 'u03', label: 'Janošíková Kateřina' },
-    { value: 'u04', label: 'Jindřichová Radka' },
-    { value: 'u05', label: 'Kotalová Simona' },
-    { value: 'u06', label: 'Lupíšek Roman' }
-  ];
-*/
-  //const options = JSON.parse(document.getElementById('multipleSelectOptions').value);
-  const preselected = ["testovaciucitel@zstgmasaryka.cz","tesarova@zstgmasaryka.cz"];
-  const selectedMultipleSelectInput = new Set(preselected);
+
+  const preselected = [];
+  const selectedMultipleSelectInput = '';
 
   const searchMultipleSelectInput = document.getElementById('multipleSelectSearch');
   const list = document.getElementById('multipleSelectList');
   const footer = document.getElementById('multipleSelectFooter');
+
+  function runMultipleSelectInput() {
+    preselected = ["testovaciucitel@zstgmasaryka.cz","tesarova@zstgmasaryka.cz"];
+    selectedMultipleSelectInput = new Set(preselected);
+  }
 
   function getFilteredOptions() {
     const options = JSON.parse(document.getElementById('multipleSelectOptions').value);
