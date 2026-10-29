@@ -593,7 +593,7 @@ function normalizeEmail(email) {
 
   function runMultipleSelectInput() {
     preselected1 = ["testovaciucitel@zstgmasaryka.cz","tesarova@zstgmasaryka.cz"];
-    preselected = JSON.parse(document.getElementById('multipleSelectOptionsPreselectedPeoples').value);
+    preselected = Object.assign({}, JSON.parse(document.getElementById('multipleSelectOptionsPreselectedPeoples').value));
     console.log(preselected1);
     console.log(preselected);
     selectedMultipleSelectInput = new Set(preselected);
