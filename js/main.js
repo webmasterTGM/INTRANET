@@ -592,7 +592,7 @@ const options = [
     { value: 'u06', label: 'Lupíšek Roman' }
   ];
 */
-  const options = document.getElementById('multipleSelectOptions');
+  const options = JSON.parse(document.getElementById('multipleSelectOptions').value());
   const selected = new Set();
 
   const searchMultipleSelectInput = document.getElementById('multipleSelectSearch');
