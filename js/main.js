@@ -583,8 +583,8 @@ function normalizeEmail(email) {
 
 /* multiple selectbox */
 
-  const preselected = [];
-  const selectedMultipleSelectInput = '';
+  let preselected = [];
+  let selectedMultipleSelectInput = '';
 
   const searchMultipleSelectInput = document.getElementById('multipleSelectSearch');
   const list = document.getElementById('multipleSelectList');
