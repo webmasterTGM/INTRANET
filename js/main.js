@@ -594,8 +594,8 @@ const options = [
   const selected = new Set();
 
   const searchMultipleSelectInput = document.getElementById('multipleSelectSearch');
-  const list = document.getElementById('msList');
-  const footer = document.getElementById('msFooter');
+  const list = document.getElementById('multipleSelectList');
+  const footer = document.getElementById('multipleSelectFooter');
 
   function getFilteredOptions() {
     const query = searchMultipleSelectInput.value
