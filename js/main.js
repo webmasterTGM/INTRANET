@@ -593,7 +593,8 @@ const options = [
   ];
 */
   //const options = JSON.parse(document.getElementById('multipleSelectOptions').value);
-  const selectedMultipleSelectInput = new Set();
+  const preselected = ["testovaciucitel@zstgmasaryka.cz","tesarova@zstgmasaryka.cz"];
+  const selectedMultipleSelectInput = new Set(preselected);
 
   const searchMultipleSelectInput = document.getElementById('multipleSelectSearch');
   const list = document.getElementById('multipleSelectList');
