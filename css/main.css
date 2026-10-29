@@ -1052,3 +1052,78 @@ iframe {
  .signature-table td:last-child {
    width: 50%;
  }
+
+/* multiple selectbox */
+ .multiselect {
+   width: 100%;
+   max-width: 420px;
+   font-family: Arial, sans-serif;
+   font-size: 14px;
+ }
+
+ .ms-box {
+   background: #fff;
+   border: 1px solid #d1d5db;
+   border-radius: 10px;
+   overflow: hidden;
+ }
+
+ .ms-search {
+   box-sizing: border-box;
+   width: 100%;
+   padding: 12px 14px;
+   border: none;
+   border-bottom: 1px solid #e5e7eb;
+   outline: none;
+   font-size: 14px;
+ }
+
+ .ms-search:focus {
+   background: #f8fafc;
+ }
+
+ .ms-toolbar {
+   display: flex;
+   justify-content: space-between;
+   padding: 10px 12px;
+   border-bottom: 1px solid #e5e7eb;
+ }
+
+ .ms-toolbar button {
+   border: none;
+   background: transparent;
+   color: #2563eb;
+   font-size: 12px;
+   cursor: pointer;
+ }
+
+ .ms-list {
+   max-height: 240px;
+   overflow-y: auto;
+   padding: 5px;
+ }
+
+ .ms-item {
+   display: flex;
+   align-items: center;
+   gap: 10px;
+   padding: 9px 10px;
+   border-radius: 6px;
+   cursor: pointer;
+ }
+
+ .ms-item:hover {
+   background: #f1f5f9;
+ }
+
+ .ms-item input {
+   accent-color: #2563eb;
+   width: 16px;
+   height: 16px;
+ }
+
+ .ms-footer {
+   margin-top: 8px;
+   color: #64748b;
+   font-size: 12px;
+ }
