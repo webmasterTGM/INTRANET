@@ -580,3 +580,88 @@ function normalizeEmail(email) {
     .toLowerCase()
     .replace(/\s+/g, '');
 }
+
+/* multiple selectbox */
+const options = [
+    { value: 'u01', label: 'Brejchová Eva' },
+    { value: 'u02', label: 'Houdková Petra' },
+    { value: 'u03', label: 'Janošíková Kateřina' },
+    { value: 'u04', label: 'Jindřichová Radka' },
+    { value: 'u05', label: 'Kotalová Simona' },
+    { value: 'u06', label: 'Lupíšek Roman' }
+  ];
+
+  const selected = new Set();
+
+  const searchMultipleSelectInput = document.getElementById('MultipleSelectSearch');
+  const list = document.getElementById('msList');
+  const footer = document.getElementById('msFooter');
+
+  function getFilteredOptions() {
+    const query = searchMultipleSelectInput.value
+      .trim()
+      .toLocaleLowerCase('cs');
+
+    return options.filter(item =>
+      item.label.toLocaleLowerCase('cs').includes(query)
+    );
+  }
+
+  function renderMultipleSelectOptions() {
+    list.replaceChildren();
+
+    getFilteredOptions().forEach(item => {
+      const label = document.createElement('label');
+      label.className = 'ms-item';
+
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.value = item.value;
+      checkbox.checked = selected.has(item.value);
+
+      checkbox.addEventListener('change', () => {
+        if (checkbox.checked) {
+          selected.add(item.value);
+        } else {
+          selected.delete(item.value);
+        }
+        updateFooter();
+      });
+
+      const text = document.createElement('span');
+      text.textContent = item.label;
+
+      label.appendChild(checkbox);
+      label.appendChild(text);
+      list.appendChild(label);
+    });
+
+    if (!list.children.length) {
+      const empty = document.createElement('div');
+      empty.textContent = 'Žádné výsledky';
+      empty.style.padding = '12px';
+      list.appendChild(empty);
+    }
+
+    updateFooter();
+  }
+
+  function updateFooter() {
+    footer.textContent = `${selected.size} vybraných položek`;
+  }
+
+  function selectVisible() {
+    getFilteredOptions().forEach(item => selected.add(item.value));
+    renderMultipleSelectOptions();
+  }
+
+  function clearSelection() {
+    selected.clear();
+    renderMultipleSelectOptions();
+  }
+
+  function getSelectedValues() {
+    return Array.from(selected);
+  }
+
+  searchMultipleSelectInput.addEventListener('input', renderMultipleSelectOptions);
