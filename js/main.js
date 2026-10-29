@@ -592,9 +592,10 @@ function normalizeEmail(email) {
   const footer = document.getElementById('multipleSelectFooter');
 
   function runMultipleSelectInput() {
-    //preselected = ["testovaciucitel@zstgmasaryka.cz","tesarova@zstgmasaryka.cz"];
+    preselected1 = ["testovaciucitel@zstgmasaryka.cz","tesarova@zstgmasaryka.cz"];
     preselected = JSON.parse(document.getElementById('multipleSelectOptionsPreselectedPeoples').value);
-    //console.log(preselected);
+    console.log(preselected1);
+    console.log(preselected);
     selectedMultipleSelectInput = new Set(preselected);
   }
 
