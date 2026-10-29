@@ -593,7 +593,7 @@ const options = [
   ];
 */
   //const options = JSON.parse(document.getElementById('multipleSelectOptions').value);
-  const selected = new Set();
+  const selectedMultipleSelectInput = new Set();
 
   const searchMultipleSelectInput = document.getElementById('multipleSelectSearch');
   const list = document.getElementById('multipleSelectList');
@@ -621,13 +621,13 @@ const options = [
       const checkbox = document.createElement('input');
       checkbox.type = 'checkbox';
       checkbox.value = item.value;
-      checkbox.checked = selected.has(item.value);
+      checkbox.checked = selectedMultipleSelectInput.has(item.value);
 
       checkbox.addEventListener('change', () => {
         if (checkbox.checked) {
-          selected.add(item.value);
+          selectedMultipleSelectInput.add(item.value);
         } else {
-          selected.delete(item.value);
+          selectedMultipleSelectInput.delete(item.value);
         }
         updateFooter();
       });
@@ -651,21 +651,21 @@ const options = [
   }
 
   function updateFooter() {
-    footer.textContent = `${selected.size} vybraných položek`;
+    footer.textContent = `${selectedMultipleSelectInput.size} vybraných položek`;
   }
 
   function selectVisible() {
-    getFilteredOptions().forEach(item => selected.add(item.value));
+    getFilteredOptions().forEach(item => selectedMultipleSelectInput.add(item.value));
     renderMultipleSelectOptions();
   }
 
   function clearSelection() {
-    selected.clear();
+    selectedMultipleSelectInput.clear();
     renderMultipleSelectOptions();
   }
 
   function getSelectedValues() {
-    return Array.from(selected);
+    return Array.from(selectedMultipleSelectInput);
   }
 
   searchMultipleSelectInput.addEventListener('input', renderMultipleSelectOptions);
