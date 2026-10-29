@@ -592,7 +592,7 @@ const options = [
     { value: 'u06', label: 'Lupíšek Roman' }
   ];
 */
-  //const options = JSON.parse(document.getElementById('multipleSelectOptions').value());
+  //const options = JSON.parse(document.getElementById('multipleSelectOptions').value);
   const selected = new Set();
 
   const searchMultipleSelectInput = document.getElementById('multipleSelectSearch');
@@ -600,7 +600,7 @@ const options = [
   const footer = document.getElementById('multipleSelectFooter');
 
   function getFilteredOptions() {
-    const options = JSON.parse(document.getElementById('multipleSelectOptions').value());
+    const options = JSON.parse(document.getElementById('multipleSelectOptions').value);
     const query = searchMultipleSelectInput.value
       .trim()
       .toLocaleLowerCase('cs');
@@ -611,7 +611,7 @@ const options = [
   }
 
   function renderMultipleSelectOptions() {
-    const options = JSON.parse(document.getElementById('multipleSelectOptions').value());
+    const options = JSON.parse(document.getElementById('multipleSelectOptions').value);
     list.replaceChildren();
 
     getFilteredOptions().forEach(item => {
