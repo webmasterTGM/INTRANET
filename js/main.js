@@ -608,9 +608,7 @@ function normalizeEmail(email) {
     );
   }
 
-  function renderMultipleSelectOptions() {
-    runMultipleSelectInput();
-    
+  function renderMultipleSelectOptions() {    
     const options = JSON.parse(document.getElementById('multipleSelectOptions').value);
     list.replaceChildren();
 
