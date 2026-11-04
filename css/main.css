@@ -644,7 +644,7 @@
 .worker-label--teach {
   color: #fff;
   background-color: #3c69a6;
-  border: 3px solid #304e76;
+  border: 1px solid #304e76;
   font-size: 16px;
 }
 
@@ -652,21 +652,21 @@
 .worker-label--classteach {
   color: #fff;
   background-color: #b92e90;
-  border: 3px solid #922171;
+  border: 1px solid #922171;
   font-size: 16px;
 }
 
 .worker-label--ap {
   color: #fff;
   background-color: #819221;
-  border: 3px solid #586415;
+  border: 1px solid #586415;
   font-size: 16px;
 }
 
 .worker-label--npp {
   color: #fff;
   background-color: #218992;
-  border: 3px solid #586415;
+  border: 1px solid #586415;
   font-size: 16px;
 }
 
