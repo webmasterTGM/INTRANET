@@ -664,5 +664,3 @@ function normalizeEmail(email) {
   function getSelectedValues() {
     return Array.from(selectedMultipleSelectInput);
   }
-
-  searchMultipleSelectInput.addEventListener('input', renderMultipleSelectOptions);
