@@ -206,6 +206,35 @@
     transform: scale(0.96);
   }
 
+  .btn-notifikace {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .btn-notifikace:hover {
+    background-color: #1d4ed8;
+  }
+  
+  .btn-notifikace:active {
+    background-color: #1e40af;
+  }
+  
+  .btn-notifikace svg {
+    flex-shrink: 0;
+  }
+
   .btn-svg {
     width: 35px;
     height: 35px;
